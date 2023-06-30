@@ -4,7 +4,7 @@ import face_recognition
 
 imgran= face_recognition.load_image_file('Images/ranveer-singh.jpg')
 imgran= cv2.cvtColor(imgran,cv2.COLOR_BGR2RGB)
-imgtest= face_recognition.load_image_file('Images/ranveer-testing.jpg.jpg')
+imgtest= face_recognition.load_image_file('Images/ranveer-testing.jpg')
 imgtest= cv2.cvtColor(imgtest,cv2.COLOR_BGR2RGB)
 
 ############-----Face Detecting-----------##############
@@ -28,6 +28,7 @@ facedis= face_recognition.face_distance([encoderan],encoderantest)
 #lower distance = best match
 
 print(results,facedis)
+cv2.putText(imgtest,f'{results} {round(facedis[0],2)}',(50,50),cv2.FONT_HERSHEY_PLAIN,1,(0,0,255),2)
 
 # print(faceLoc)
 
